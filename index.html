@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página Web</title>
+    <style>
+        /* Estilos globales */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #007bff;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="titulo" contenteditable="true">Mi Primera Página Web</h1>
+        <nav id="menu" contenteditable="true">
+            <a href="#">Inicio</a>
+            <a href="#">Acerca de</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <section id="acerca" contenteditable="true">
+        <h2>Acerca de Nosotros</h2>
+        <p>Bienvenidos a nuestra página web. Somos una empresa dedicada a...</p>
+    </section>
+
+    <section id="servicios" contenteditable="true">
+        <h2>Nuestros Servicios</h2>
+        <ul>
+            <li>Servicio 1</li>
+            <li>Servicio 2</li>
+            <li>Servicio 3</li>
+        </ul>
+    </section>
+
+    <section id="contacto" contenteditable="true">
+        <h2>Contacto</h2>
+        <p>Puede contactarnos en: email@example.com</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mi Empresa - Todos los derechos reservados</p>
+    </footer>
+
+    <!-- Botón flotante para descargar la página -->
+    <button class="boton-flotante" onclick="descargarPagina()">Descargar Página</button>
+
+    <!-- Script para descargar archivos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
