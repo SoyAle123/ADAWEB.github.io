@@ -5,40 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADAWEB</title>
     <style>
-        /* Estilos globales */
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
+            margin: 0;
             padding: 0;
-            position: relative;
             min-height: 100vh;
+            background-color: rgba(230, 221, 221, 0.904);
         }
 
         header {
-            background-color: #333;
+            background-color: black;
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 10px;
             text-align: center;
         }
 
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
+            margin: 0;
         }
 
         nav {
-            text-align: center;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
 
         nav a {
             text-decoration: none;
             color: #fff;
-            margin: 0 10px;
+            margin: 0 15px;
             display: inline-block;
-            padding: 5px 10px;
+            padding: 10px 15px;
             border-radius: 5px;
             background-color: #007bff;
+            transition: background-color 0.3s ease;
         }
 
         nav a:hover {
@@ -46,17 +45,41 @@
         }
 
         section {
+            padding: 20px;
             margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         footer {
-            background-color: #333;
+            background-color: black;
             color: #fff;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
+            position: fixed;    
             bottom: 0;
             width: 100%;
+        }
+
+        .boton-flotante {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .boton-flotante:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -87,11 +110,11 @@
 
     <section id="contacto" contenteditable="true">
         <h2>Contacto</h2>
-        <p>Puede contactarnos en: email@example.com</p>
+        <p>Puede contactarnos en: email@ejemplo.com</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Mi Empresa - Todos los derechos reservados</p>
+        <p>&copy; 2024 Mi Empresa - Todos los derechos reservados por adaweb</p>
     </footer>
 
     <!-- Botón flotante para descargar la página -->
@@ -99,6 +122,18 @@
 
     <!-- Script para descargar archivos -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        function descargarPagina() {
+            var zip = new JSZip();
+            zip.file("index.html", document.documentElement.outerHTML);
+            zip.generateAsync({type:"blob"})
+            .then(function(content) {
+                var a = document.createElement('a');
+                a.href = URL.createObjectURL(content);
+                a.download = "pagina.zip";
+                a.click();
+            });
+        }
+    </script>
 </body>
 </html>
