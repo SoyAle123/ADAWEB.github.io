@@ -122,12 +122,35 @@
 
     <!-- Script para descargar archivos -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    
     <script>
         function descargarPagina() {
+            // Deshabilitar edición temporalmente
+            var titulo = document.getElementById('titulo');
+            var menu = document.getElementById('menu');
+            var acerca = document.getElementById('acerca');
+            var servicios = document.getElementById('servicios');
+            var contacto = document.getElementById('contacto');
+    
+            titulo.removeAttribute('contenteditable');
+            menu.removeAttribute('contenteditable');
+            acerca.removeAttribute('contenteditable');
+            servicios.removeAttribute('contenteditable');
+            contacto.removeAttribute('contenteditable');
+    
+            // Generar archivo ZIP con el HTML actual
             var zip = new JSZip();
             zip.file("index.html", document.documentElement.outerHTML);
             zip.generateAsync({type:"blob"})
             .then(function(content) {
+                // Restaurar edición
+                titulo.setAttribute('contenteditable', 'true');
+                menu.setAttribute('contenteditable', 'true');
+                acerca.setAttribute('contenteditable', 'true');
+                servicios.setAttribute('contenteditable', 'true');
+                contacto.setAttribute('contenteditable', 'true');
+    
+                // Descargar archivo ZIP
                 var a = document.createElement('a');
                 a.href = URL.createObjectURL(content);
                 a.download = "pagina.zip";
@@ -135,5 +158,7 @@
             });
         }
     </script>
+    
+    
 </body>
 </html>
